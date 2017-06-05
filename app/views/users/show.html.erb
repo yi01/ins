@@ -1,7 +1,18 @@
+<%= form_for @picture do |f| %>
+  <%= f.file_field :image %>
+  <% if @picture.errors.any? %>
+  <%= @picture.errors.masagges %>
+  <% end %>
+  <%= f.text_field :title %>
+  <%= f.submit %>
+<% end %>
+
 <ul>
 <% @pictures.each do |picture| %>
   <li style="list-style-type: none;"><%= image_tag picture.image %></li>
   <li style="list-style-type: none;"><%= picture.title %></li>
+  <%= link_to "edit", edit_picture_path(picture.id) %>
+  <%= link_to "delete", picture_path(picture.id), method: :delete, data: { confirm: "are you sure?" } %>
 <% end %>
 
 </ul>
