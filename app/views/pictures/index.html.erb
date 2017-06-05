@@ -1,0 +1,8 @@
+<% @pictures.each do |picture| %>
+<%= link_to image_tag(picture.image), picture_path(picture.id) %>
+<% end %>
+
+<%= form_for @picture do |f| %>
+  <%= f.file_field :image %>
+  <%= f.submit %>
+<% end %>
