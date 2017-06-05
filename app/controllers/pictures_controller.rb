@@ -1,6 +1,9 @@
 class PicturesController < ApplicationController
   def index
     @pictures = Picture.all
+  end
+
+  def new
     @picture = Picture.new
   end
 
@@ -8,6 +11,10 @@ class PicturesController < ApplicationController
     @picture = Picture.new(picture_params)
     @picture.save
     redirect_to pictures_path
+  end
+
+  def show
+    @picture = Picture.find(params[:id])
   end
 
   private

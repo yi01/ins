@@ -1,0 +1,7 @@
+<ul>
+<% @pictures.each do |picture| %>
+  <li style="list-style-type: none;"><%= image_tag picture.image %></li>
+  <li style="list-style-type: none;"><%= picture.title %></li>
+<% end %>
+
+</ul>
