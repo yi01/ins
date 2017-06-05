@@ -13,9 +13,17 @@
       <h2><%= link_to "Instagram", root_path %></h2>
     </div>
     <div class="header-right">
+      <% if user_signed_in? %>
       <ul>
         <li><%= link_to "Mypage", user_path(current_user.id) %></li>
+        <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
       </ul>
+      <% else %>
+        <ul>
+          <li><%= link_to "サインイン", new_user_registration_path %></li>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+        </ul>
+      <% end %>
     </div>
   </header>
 
